@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  overflow-x: hidden;
+}
+body {
+  overflow-y: visible;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.scrollLatestPost::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.scrollLatestPost::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Or any other color */
+}
+
+/* Handle */
+.scrollLatestPost::-webkit-scrollbar-thumb {
+  background: #cccccc; /* Or any other color */
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+.scrollLatestPost::-webkit-scrollbar-thumb:hover {
+  background: #979696; /* Or any other color */
+}
