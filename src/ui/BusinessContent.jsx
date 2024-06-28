@@ -13,7 +13,7 @@ const BusinessContent = ({ data }) => {
       <img
         src={data.image}
         alt={data.title}
-        className="w-full h-[250px] max-w-full max-h-full hover:opacity-70 cursor-pointer pb-3 transition-transform duration-300 ease-in-out"
+        className="w-full h-[200px] max-w-full max-h-full hover:opacity-70 cursor-pointer pb-3 transition-transform duration-300 ease-in-out"
       />
       <h1 className="text-[15px] text-stone-800 font-semibold dark:text-[#dbd9d9] transition-all cursor-pointer">
         {data.title}

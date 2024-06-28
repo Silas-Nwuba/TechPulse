@@ -12,6 +12,17 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+&.dark {
+  .toggle + label::before {
+    content: "";
+    background: rgb(73, 73, 73);
+    width: 2.2em;
+    height: 1.2em;
+    border: 2px solid rgb(73, 73, 73);
+    border-radius: 1em;
+  }
+}
+
 .scrollLatestPost::-webkit-scrollbar {
   width: 8px;
 }
@@ -30,4 +41,36 @@ body {
 /* Handle on hover */
 .scrollLatestPost::-webkit-scrollbar-thumb:hover {
   background: #979696; /* Or any other color */
+}
+
+.toggle {
+  visibility: hidden;
+}
+.toggle + label {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  color: red;
+}
+.toggle + label::before {
+  content: "";
+  background: blue;
+  width: 2.2em;
+  height: 1.2em;
+  border-radius: 1em;
+}
+
+.toggle + label::after {
+  content: "";
+  background: white;
+  border-radius: 1em;
+  position: absolute;
+  right: 0.1em;
+  width: 1em;
+  height: 1em;
+}
+
+.toggle:checked + label::after {
+  transform: translateX(-100%);
 }

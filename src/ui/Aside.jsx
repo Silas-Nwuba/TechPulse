@@ -9,7 +9,7 @@ const Aside = () => {
       <LatestPost />
       <SquareAd height={"h-[500px]"} marginTop={"mt-[2px]"} />
       <AppPost />
-      {/* <SquareAd height={"h-[500px]"} marginTop={"mt-[60px]"} /> */}
+      <SquareAd height={"h-[500px]"} marginTop={"mt-[60px]"} />
     </aside>
   );
 };

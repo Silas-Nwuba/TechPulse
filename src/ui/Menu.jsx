@@ -1,94 +1,84 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink, useMatch } from "react-router-dom";
 import Logo from "./Logo";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { FaMoon } from "react-icons/fa";
-import { LuMoon, LuSun } from "react-icons/lu";
 import { useDarkMode } from "../context/DarkModeContext";
-import { BsFillMoonStarsFill } from "react-icons/bs";
 import { TbSunHigh } from "react-icons/tb";
+import { RiMoonFill } from "react-icons/ri";
+import { HiBars3 } from "react-icons/hi2";
 
-const Menu = ({ handleShowMenu, handleCloseMenu }) => {
+const Menu = ({ handleShowMenu }) => {
   const homeMatch = useMatch("/home");
   const technologyeMatch = useMatch("/technology");
   const businessMatch = useMatch("/business");
-  const smartphoneMatch = useMatch("/smartphone");
   const gadgetMatch = useMatch("/gadget");
+  const appMatch = useMatch("/apps");
+
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
     <section
-      className={`flex justify-between bg-[#1e88e5] dark:bg-[#171717] shadow-sm px-2 md:px-5 xl:px-10 w-full items-center z-[20000] transition-opacity duration-300 ease-in-out`}
+      className={`flex justify-between bg-[#171717] shadow-sm px-2 md:px-5 xl:px-10 w-full items-center z-[20000] transition-opacity duration-300 ease-in-out`}
     >
       <Logo />
       <nav>
-        <ul className="md:flex gap-4 xl:gap-[50px] text-stone-100 tracking-widest dark:text-[#e0e0e0] relative font-semibold text-sm hidden">
+        <ul className="md:flex gap-4 xl:gap-[50px] tracking-widest text-[#e0e0e0] relative font-semibold text-[13px] hidden">
           <li
-            className={`hover:text-white dark:hover:text-[#1e88e5] transition-all duration-300 hidden lg:block ease-in-out ${
+            className={`hover:text-white  transition-all duration-300 hidden lg:block ease-in-out ${
               homeMatch ? "text-white font-semibold" : ""
             }`}
           >
-            <NavLink to={"/home"}>Home</NavLink>
+            <NavLink to={"home"}>Home</NavLink>
           </li>
           <li
             className={`hover:text-white transition-all duration-300 hidden lg:block ease-in-out ${
               technologyeMatch ? "text-white font-semibold" : ""
             }`}
           >
-            <NavLink to={"/technology"}>Technology</NavLink>
+            <NavLink to={"technology"}>Technology</NavLink>
           </li>
           <li
             className={`hover:text-white transition-all duration-300 hidden lg:block ease-in-out ${
               businessMatch ? "text-white font-semibold" : ""
             }`}
           >
-            <NavLink to={"/business"}>Business</NavLink>
-          </li>
-          <li
-            className={`hover:text-white transition-all duration-300 hidden lg:block ease-in-out ${
-              smartphoneMatch ? "text-white font-semibold" : ""
-            }`}
-          >
-            <NavLink to={"/gadget"}>Gadget</NavLink>
+            <NavLink to={"business"}>Business</NavLink>
           </li>
           <li
             className={`hover:text-white transition-all duration-300 hidden lg:block ease-in-out ${
               gadgetMatch ? "text-white font-semibold" : ""
             }`}
           >
-            <NavLink to={"/app"}>Apps</NavLink>
+            <NavLink to={"gadget"}>Gadget</NavLink>
+          </li>
+          <li
+            className={`hover:text-white transition-all duration-300 hidden lg:block ease-in-out ${
+              appMatch ? "text-white font-semibold" : ""
+            }`}
+          >
+            <NavLink to={"apps"}>Apps</NavLink>
           </li>
         </ul>
       </nav>
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4">
+        <span className="bg-stone-600 rounded-full p-2 cursor-pointer hidden lg:block">
+          <FaMagnifyingGlass className="text-stone-100 dark:text-stone-300 text-xl hidden lg:block cursor-pointer" />
+        </span>
         <span
           onClick={() => toggleDarkMode((darkMode) => !darkMode)}
-          className="mr-2"
+          className="mr-2 hidden lg:block hover:bg-stone-600 rounded-full p-2 cursor-pointer"
         >
           {isDarkMode ? (
-            <BsFillMoonStarsFill className="text-stone-100 text-xl cursor-pointer dark:text-stone-300 " />
+            <RiMoonFill className="text-xl cursor-pointer text-stone-100 " />
           ) : (
-            // <LuMoon className="text-stone-100 text-xl cursor-pointer dark:text-stone-300" />
-            <TbSunHigh className="text-stone-100 text-xl cursor-pointer dark:text-stone-300" />
+            <TbSunHigh className="text-xl  text-stone-100" />
           )}
         </span>
-        <FaMagnifyingGlass className="text-stone-100 dark:text-stone-300 text-xl hidden lg:block" />
-
-        {/* <input
-          type="text"
-          placeholder="Search"
-          className="bg-sky-300 dark:bg-[#414040] rounded-md py-2 dark:placeholder:text-stone-200 placeholder:text-white text-sm px-4 text-white focus:outline-none w-full hidden lg:block"
-        />
-        {showMenu ? (
-          <HiXMark
-            className="text-[30px] text-slate-50 w-20 dark:text-[#e0e0e0] cursor-pointer ml-[140px] font-bold block "
-            onClick={handleCloseMenu}
-          />
-        ) : (
+        <span className="border border-stone-600  w-10 flex flex-col items-center rounded-sm lg:hidden">
           <HiBars3
-            className="text-[37px] w-20 cursor-pointer dark:text-[#e0e0e0]  block text-slate-50 lg:hidden "
+            className="text-[32px] cursor-pointer text-stone-300"
             onClick={handleShowMenu}
           />
-        )} */}
+        </span>
       </div>
     </section>
   );

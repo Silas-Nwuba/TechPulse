@@ -1,25 +1,40 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import "../App.css";
-import Footer from "./Footer";
-import Menu from "./Menu";
+import { useEffect, useState } from "react";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { Link, NavLink, Outlet, useMatch } from "react-router-dom";
 import {
   FaFacebookSquare,
   FaGooglePlusSquare,
-  FaTwitterSquare,
   FaWhatsappSquare,
 } from "react-icons/fa";
-import { Link, NavLink, Outlet, useMatch } from "react-router-dom";
-import { HiBars3, HiChevronDown } from "react-icons/hi2";
+import Footer from "./Footer";
+import Menu from "./Menu";
+import { OverLay } from "./OverLay";
 import MenuSidebar from "./MenuSidebar";
 import HorizontalAd from "./HorizontalAd";
-// import AdvertModal from "./AdvertModal";
 
 const AppLayout = () => {
-  // const { error } = useGetAllComment();
+  // if ("serviceWorker" in navigator) {
+  //   navigator.serviceWorker
+  //     .register("../hook/useServiceWorker")
+  //     .then((reg) => {
+  //       console.log("Service worker registered  with", reg.scope);
+  //     })
+  //     .catch((err) => console.log("service worker registration failed", err));
+  // }
+
+  // useEffect(() => {
+  //   if ("Notification" in window) {
+  //     Notification.requestPermission().then((res) => {
+  //       if (res === "granted") console.log("granted");
+  //       else console.log("not granted!");
+  //     });
+  //   }
+  // }, []);
+
   const [showMenu, setShowMenu] = useState(false);
   const [showNav, setShowNav] = useState(false);
-
   const homeMatch = useMatch("/home");
   const aboutMatch = useMatch("/about");
   const contactMatch = useMatch("/contact");
@@ -42,33 +57,19 @@ const AppLayout = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // if (error) {
-  //   return <NotFoundError />;
-  // }
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="item-center flex justify-between dark:bg-[#000000] bg-slate-50 py-4 lg:px-10">
+      <header className="item-center flex justify-center lg:justify-between dark:border-b-[#333333] border-2 border-t-0  border-r-0 border-l-0 border-b-stone-100 py-4 lg:px-10">
         <nav>
-          <HiBars3
-            className="text-[32px] w-20 cursor-pointer dark:text-[#e0e0e0]  block text-stone-600 lg:hidden"
-            onClick={handleShowMenu}
-          />
-
-          <ul className="flex gap-4 text-[13px] font-medium text-stone-600 dark:text-[#e0e0e0]">
+          <ul className="flex gap-4 text-[13px] font-medium text-stone-500 dark:text-[#e0e0e0]">
             <li
-              className={`hidden lg:flex items-center gap-1 transition-all hover:text-[#007bff] dark:hover:text-[#eeeeee] ${
-                homeMatch
-                  ? "font-semibold text-[#1e88e5] dark:text-[#1e88e5]"
-                  : ""
-              }`}
+              className={`hidden lg:flex items-center gap-1 transition-all hover:text-[#007bff] dark:hover:text-[#eeeeee]`}
               onClick={handleNavigation}
             >
               <NavLink to={"/"}>Home</NavLink>
-              {/* <HiChevronDown className="mt-1 block lg:hidden" /> */}
             </li>
             <li
-              className={`hidden transition-all hover:text-[#007bff] dark:hover:text-[#eeeeee] lg:block ${
+              className={`hidden transition-all dark:hover:text-[#eeeeee] lg:block ${
                 aboutMatch
                   ? "font-semibold text-[#1e88e5] dark:text-[#1e88e5]"
                   : ""
@@ -77,7 +78,7 @@ const AppLayout = () => {
               <NavLink to={"/about"}>About</NavLink>
             </li>
             <li
-              className={`hidden transition-all hover:text-[#007bff] dark:hover:text-[#eeeeee] lg:block ${
+              className={`hidden transition-all dark:hover:text-[#eeeeee] lg:block ${
                 contactMatch
                   ? "font-semibold text-[#1e88e5] dark:text-[#1e88e5]"
                   : ""
@@ -87,7 +88,7 @@ const AppLayout = () => {
             </li>
 
             <li
-              className={`hidden transition-all hover:text-[#007bff] dark:hover:text-[#eeeeee] lg:block ${
+              className={`hidden transition-all dark:hover:text-[#eeeeee] lg:block ${
                 privacyMatch
                   ? "font-semibold text-[#1e88e5] dark:text-[#1e88e5]"
                   : ""
@@ -96,7 +97,7 @@ const AppLayout = () => {
               <NavLink to={"/privacy"}>Privacy police</NavLink>
             </li>
             <li
-              className={`hidden transition-all hover:text-[#007bff] dark:hover:text-[#eeeeee] lg:block ${
+              className={`hidden transition-all dark:hover:text-[#eeeeee] lg:block ${
                 advertMatch
                   ? "font-semibold text-[#1e88e5] dark:text-[#1e88e5]"
                   : ""
@@ -109,19 +110,19 @@ const AppLayout = () => {
             <div className="absolute z-[60000] mt-2 block bg-stone-600 px-5 py-3 shadow-sm transition-all duration-300 ease-in-out xl:hidden">
               <nav>
                 <ul className="block space-y-5 text-[13px] font-medium text-white">
-                  <li className="transition-all hover:text-[#007bff]">
+                  <li className="transition-all">
                     <NavLink>Home</NavLink>
                   </li>
-                  <li className="transition-all hover:text-[#007bff]">
+                  <li className="transition-all">
                     <NavLink>About</NavLink>
                   </li>
-                  <li className="transition-all hover:text-[#007bff]">
+                  <li className="transition-all">
                     <NavLink>Contact</NavLink>
                   </li>
-                  <li className="transition-all hover:text-[#007bff]">
+                  <li className="transition-all">
                     <NavLink>Privacy police</NavLink>
                   </li>
-                  <li className="transition-all hover:text-[#007bff]">
+                  <li className="transition-all">
                     <NavLink vLink>Advertise with us</NavLink>
                   </li>
                 </ul>
@@ -130,14 +131,14 @@ const AppLayout = () => {
           )}
         </nav>
         <span className="mr-4 xl:mr-0">
-          <ul className="flex cursor-pointer gap-2 md:gap-3">
+          <ul className="flex cursor-pointer gap-3 md:gap-3">
             <li>
               <Link>
                 <FaFacebookSquare className="text-2xl text-sky-600 transition-all duration-200" />
               </Link>
             </li>
             <li>
-              <FaTwitterSquare className="text-2xl text-sky-500 transition-all duration-200" />
+              <FaSquareXTwitter className="text-2xl text-black transition-all duration-200 dark:text-stone-300" />
             </li>
             <li>
               <FaWhatsappSquare className="text-2xl text-green-600 transition-all duration-200" />
@@ -148,18 +149,16 @@ const AppLayout = () => {
           </ul>
         </span>
       </header>
+      <HorizontalAd backgroundColor={"bg-stone-100 dark:bg-[#2c2c2c] "} />
       <Menu
         handleShowMenu={handleShowMenu}
         handleCloseMenu={handleCloseMenu}
         showMenu={showMenu}
         showNav={showNav}
       />
-
       {showMenu && <MenuSidebar setShowMenu={setShowMenu} />}
-      <div className="w-full bg-gray-50 dark:bg-[#414040]  px-3 py-10">
-        <HorizontalAd />
-      </div>
-      <main className="mx-auto mb-10 mt-10 min-h-screen w-[95%] md:w-[98%]">
+      {showMenu && <OverLay />}
+      <main className="mx-auto mb-10 mt-10 min-h-screen w-[95%] md:w-[95%]">
         <Outlet />
       </main>
       <Footer />

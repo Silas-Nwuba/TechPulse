@@ -3,13 +3,12 @@ import Main from "../ui/Main";
 import Aside from "../ui/Aside";
 const HomePage = () => {
   useEffect(() => {
-    // window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
     document.title = "TechPulse: Tech to the world";
     return () => {
       document.title = "TechPulse - Tech to the world";
     };
   }, []);
-
   return (
     <div className="mb-10 block gap-5 xl:flex mt-10 min-h-screen">
       <div className="w-[100%] xl:w-[65%]">

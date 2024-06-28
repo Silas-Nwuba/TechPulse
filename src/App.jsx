@@ -2,18 +2,18 @@ import React from "react";
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import HomePage from "./page/HomePage";
-import TechnologyPage from "./page/TechnologyPage";
-import BusinessPage from "./page/BusinessPage";
-// import SmartphonePage from "./page/SmartphonePage";
-import GadgetPage from "./page/GadgetPage";
 import ArticlePage from "./page/ArticlePage";
-import LatestPostPage from "./page/LatestPostPage";
-import OlderPostPage from "./page/OlderPostPage";
 import ContactPage from "./page/ContactPage";
 import AboutPage from "./page/AboutPage";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Page from "./page/Page";
+import BusinessPage from "./page/BusinessPage";
+import TechnologyPage from "./page/TechnologyPage";
+import GadgetPage from "./page/GadgetPage";
+import AppsPage from "./page/AppsPage";
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -26,6 +26,7 @@ const App = () => {
     <div>
       <>
         <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={false} />
           <DarkModeProvider>
             <BrowserRouter>
               <Routes>
@@ -37,8 +38,8 @@ const App = () => {
                   <Route path="technology" element={<TechnologyPage />} />
                   <Route path="business" element={<BusinessPage />} />
                   <Route path="gadget" element={<GadgetPage />} />
-                  <Route path="latest" element={<LatestPostPage />} />
-                  <Route path="older" element={<OlderPostPage />} />
+                  <Route path="apps" element={<AppsPage />} />
+
                   <Route
                     path="/:name/article/:postId"
                     element={<ArticlePage />}
@@ -48,7 +49,6 @@ const App = () => {
             </BrowserRouter>
           </DarkModeProvider>
         </QueryClientProvider>
-
         <Toaster
           position="top-center"
           gutter={12}

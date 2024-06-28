@@ -5,13 +5,15 @@ import { formatPostDate } from "../util/helper";
 import SquareAd from "../ui/SquareAd";
 import { useGetPostArticlePerPage } from "../feature/post/useGetPostArticlePerPage";
 
-const BusinessPage = () => {
+const AppsPage = () => {
   const location = useLocation();
   const category =
     location.pathname.replace("/", "").charAt(0).toUpperCase() +
     location.pathname.replace("/", "").slice(1);
+
   const { data, isFetchingNextPage, fetchNextPage, hasNextPage, isLoading } =
     useGetPostArticlePerPage(category);
+
   useEffect(() => {
     window.scrollTo({ top: 0 });
     document.title = `${category} | TechPulse`;
@@ -89,4 +91,4 @@ const BusinessPage = () => {
     </section>
   );
 };
-export default BusinessPage;
+export default AppsPage;

@@ -1,19 +1,16 @@
 import React, { useEffect } from "react";
 import { FaClock, FaComment, FaUser } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { formatPostDate } from "../util/helper";
 import SquareAd from "../ui/SquareAd";
 import { useGetPostArticlePerPage } from "../feature/post/useGetPostArticlePerPage";
 
-const BusinessPage = () => {
-  const location = useLocation();
-  const category =
-    location.pathname.replace("/", "").charAt(0).toUpperCase() +
-    location.pathname.replace("/", "").slice(1);
+const Page = () => {
+  const { name } = useParams();
+  const category = name.charAt(0).toUpperCase() + name.slice(1);
   const { data, isFetchingNextPage, fetchNextPage, hasNextPage, isLoading } =
     useGetPostArticlePerPage(category);
   useEffect(() => {
-    window.scrollTo({ top: 0 });
     document.title = `${category} | TechPulse`;
     return () => {
       document.title = "TechPulse: Tech to the world";
@@ -29,6 +26,7 @@ const BusinessPage = () => {
         </span>
         <div className="bg-slate-100 w-full h-[2px] mt-3 relative dark:bg-[#2c2c2c]"></div>
         <div className="mt-10 grid grid-cols-1 gap-10 md:gap-7 md:grid-cols-3">
+          {/* {isLoading && <PageLoaderSpinner />} */}
           {data &&
             !isLoading &&
             data?.pages.map((page) =>
@@ -89,4 +87,4 @@ const BusinessPage = () => {
     </section>
   );
 };
-export default BusinessPage;
+export default Page;
