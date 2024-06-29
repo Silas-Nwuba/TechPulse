@@ -149,7 +149,9 @@ const AppLayout = () => {
           </ul>
         </span>
       </header>
-      <HorizontalAd backgroundColor={"bg-stone-100 dark:bg-[#2c2c2c] "} />
+      <HorizontalAd
+        backgroundColor={"md:bg-gray-100 bg-gray-300 dark:bg-[#2c2c2c] "}
+      />
       <Menu
         handleShowMenu={handleShowMenu}
         handleCloseMenu={handleCloseMenu}

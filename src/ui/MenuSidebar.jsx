@@ -36,7 +36,7 @@ const MenuSidebar = ({ setShowMenu }) => {
       />
       <div className="bg-stone-300 dark:text-[#e0e0e0] w-full"></div>
       <nav className="mt-5">
-        <ul className=" space-y-3 text-stone-900 dark:text-stone-100 divide-y-2 divide-stone-50 dark:divide-[#3f3f3f]">
+        <ul className=" space-y-6 text-stone-900 dark:text-stone-100 divide-y-2 divide-stone-50 dark:divide-[#3f3f3f]">
           <li className="pt-5">
             <NavLink to={"/"} onClick={handleCloseSideMenu}>
               Home

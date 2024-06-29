@@ -11,7 +11,7 @@ const Technology = () => {
     <section>
       <div className="flex justify-between items-center">
         <span className="flex item-center gap-2">
-          <h2 className="text-2xl font-semibold text-stone-800 dark:text-[#e0e0e0] tracking-wide uppercase">
+          <h2 className="text-xl font-semibold text-stone-800 dark:text-[#e0e0e0] tracking-wide uppercase">
             Technology
           </h2>
           <HiMiniPlay className="text-[#007bff] dark:text-stone-100 text-xl mt-[5px]" />
