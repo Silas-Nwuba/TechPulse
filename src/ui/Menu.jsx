@@ -21,7 +21,7 @@ const Menu = ({ handleShowMenu }) => {
     >
       <Logo />
       <nav>
-        <ul className="md:flex gap-4 xl:gap-[50px] tracking-widest text-[#e0e0e0] relative font-semibold text-[13px] hidden">
+        <ul className="md:flex gap-7 xl:gap-[50px] tracking-widest text-[#e0e0e0] relative font-semibold text-[13px] hidden">
           <li
             className={`hover:text-white  transition-all duration-300 hidden lg:block ease-in-out ${
               homeMatch ? "text-white font-semibold" : ""

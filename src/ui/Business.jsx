@@ -9,7 +9,7 @@ const Business = () => {
   const businessArr = data?.filter((data) => data.category === "Business");
 
   return (
-    <section className="mt-10">
+    <section className="mt-20">
       <div className="flex justify-between items-center">
         <span className="flex item-center gap-2">
           <h2 className="text-2xl font-semibold text-stone-800 dark:text-[#e0e0e0] tracking-wide uppercase">

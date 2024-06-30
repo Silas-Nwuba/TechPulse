@@ -2,7 +2,7 @@ import React from "react";
 import { FaUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { formatPostDate } from "../util/helper";
-import { FaCalendarCheck } from "react-icons/fa";
+import { FaCalendarCheck, FaComment } from "react-icons/fa";
 const TechnologyContent = ({ data }) => {
   return (
     <div className="block lg:flex gap-6 mt-10">
@@ -18,13 +18,13 @@ const TechnologyContent = ({ data }) => {
             <img
               src={data.image}
               alt={data.title}
-              className=" w-full h-[250px] cursor-pointer"
+              className=" w-full h-[430px] cursor-pointer"
             />
-            <span className=" mx-4 ">
-              <h1 className="text-xl text-stone-700 dark:text-[#ece8e8] font-medium cursor-pointer">
+            <span className="mx-4">
+              <h1 className="text-xl text-stone-800 dark:text-[#ece8e8] font-semibold cursor-pointer">
                 {data.title}
               </h1>
-              <div className="flex gap-3 pt-2 font-medium">
+              <div className="flex gap-3 pt-3 font-medium">
                 <div className="flex items-center text-stone-500 dark:text-stone-300 text-[11px] gap-1">
                   <FaUser />
                   <span className="text-[11px] z-[20000]">{data.author}</span>
@@ -38,8 +38,8 @@ const TechnologyContent = ({ data }) => {
           </Link>
         );
       })}
-      <span className="space-y-10 xl:mt-0 ">
-        {data?.slice(1, 5).map((data) => {
+      <span className="space-y-8 xl:mt-0 ">
+        {data?.slice(1, 6).map((data) => {
           return (
             <Link
               to={`/${
@@ -51,13 +51,13 @@ const TechnologyContent = ({ data }) => {
               <img
                 src={data?.image}
                 alt={data?.title}
-                className="object-fit w-full lg:w-[100px] h-[250px] lg:h-[91px] hover:opacity-70 cursor-pointer transition-transform duration-300 ease-in-out"
+                className="object-fit w-full lg:w-[120px] h-[250px] lg:h-[91px] hover:opacity-70 cursor-pointer transition-transform duration-300 ease-in-out"
               />
               <div className=" mt-4 lg:mt-0">
-                <h1 className="text-[16px]  text-stone-600 font-medium dark:text-[#dbd9d9] transition-all cursor-pointer">
+                <h1 className="text-[16px] text-stone-800 font-semibold dark:text-[#dbd9d9] transition-all cursor-pointer">
                   {data?.title}
                 </h1>
-                <div className="flex gap-3 pt-2 font-medium">
+                <div className="flex gap-3 pt-3 font-medium">
                   <div className="flex items-center text-stone-500 dark:text-stone-300 text-[11px] gap-1">
                     <FaUser />
                     <span className="text-[11px] z-[20000]">{data.author}</span>
@@ -65,6 +65,10 @@ const TechnologyContent = ({ data }) => {
                   <div className="flex gap-1 items-center text-[11px] dark:text-stone-300 text-stone-500 ">
                     <FaCalendarCheck />
                     <span>{formatPostDate(data.createdDate)}</span>
+                  </div>
+                  <div className="flex items-center text-[11px] text-[(rgb(84, 86, 88))] dark:text-stone-300 gap-1">
+                    <FaComment className="text-stone-400" />
+                    <span>10</span>
                   </div>
                 </div>
               </div>

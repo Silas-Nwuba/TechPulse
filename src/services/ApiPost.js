@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { Content_Per_Page, Post_Per_Page } from "../util/constant";
 import supabase from "./supabase";
 

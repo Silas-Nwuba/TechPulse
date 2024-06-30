@@ -15,7 +15,7 @@ const AppsPage = () => {
     useGetPostArticlePerPage(category);
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    // window.scrollTo({ top: 0 });
     document.title = `${category} | TechPulse`;
     return () => {
       document.title = "TechPulse: Tech to the world";
@@ -46,10 +46,10 @@ const AppsPage = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-[180px] hover:opacity-70 cursor-pointer transition-transform pb-3 duration-300 ease-in-out"
+                    className="w-full h-[200px] md:h-[180px]  hover:opacity-70 cursor-pointer transition-transform pb-3 duration-300 ease-in-out"
                   />
                   <span className="space-y-1">
-                    <h1 className="text-[15px]  text-stone-800 font-medium dark:text-[#e0e0e0]  cursor-pointer">
+                    <h1 className="text-[15px] text-stone-800 font-medium dark:text-[#e0e0e0]  cursor-pointer">
                       {item.title}
                     </h1>
                     <div className="flex gap-3 pt-2">
@@ -85,8 +85,8 @@ const AppsPage = () => {
         )}
       </div>
       <div className="w-px bg-gray-200 hidden xl:block dark:bg-[#2c2c2c] mt-10"></div>
-      <aside className="w-full xl:w-[25%] flex-1">
-        <SquareAd height={"h-full"} marginTop={"mt-[60px]"} />
+      <aside className="w-full xl:w-[25%] flex-1 mt-20 xl:mt-0">
+        <SquareAd height={"h-[600px]"} marginTop={"mt-[10px]"} />
       </aside>
     </section>
   );

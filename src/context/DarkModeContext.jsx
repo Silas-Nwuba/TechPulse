@@ -5,17 +5,17 @@ const DarkModeContext = createContext();
 const Local_Key = "mode";
 function DarkModeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useLocalStorageDarkMode(
-    "dark",
+    "light",
     Local_Key
   );
   useEffect(
     function () {
       if (isDarkMode) {
-        document.documentElement.classList.add("dark");
-        document.documentElement.classList.remove("light");
-      } else {
         document.documentElement.classList.add("light");
         document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
       }
     },
     [isDarkMode]

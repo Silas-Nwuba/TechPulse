@@ -59,7 +59,7 @@ const AppLayout = () => {
   }, []);
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="item-center flex justify-center lg:justify-between dark:border-b-[#333333] border-2 border-t-0  border-r-0 border-l-0 border-b-stone-100 py-4 lg:px-10">
+      <header className="item-center flex justify-center lg:justify-between dark:border-b-[#333333] border-2 border-t-0  border-r-0 border-l-0 border-b-stone-200 md:border-b-stone-100 py-4 lg:px-10">
         <nav>
           <ul className="flex gap-4 text-[13px] font-medium text-stone-500 dark:text-[#e0e0e0]">
             <li
@@ -150,7 +150,7 @@ const AppLayout = () => {
         </span>
       </header>
       <HorizontalAd
-        backgroundColor={"md:bg-gray-100 bg-gray-300 dark:bg-[#2c2c2c] "}
+        backgroundColor={"md:bg-gray-100 bg-gray-50 dark:bg-[#2c2c2c] "}
       />
       <Menu
         handleShowMenu={handleShowMenu}

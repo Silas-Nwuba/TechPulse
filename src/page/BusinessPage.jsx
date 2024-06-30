@@ -83,8 +83,8 @@ const BusinessPage = () => {
         )}
       </div>
       <div className="w-px bg-gray-200 hidden xl:block dark:bg-[#2c2c2c] mt-10"></div>
-      <aside className="w-full xl:w-[25%] flex-1">
-        <SquareAd height={"h-full"} marginTop={"mt-[60px]"} />
+      <aside className="w-full xl:w-[25%] flex-1 mt-20 xl:mt-10">
+        <SquareAd height={"h-[600px]"} marginTop={"mt-[60px]"} />
       </aside>
     </section>
   );

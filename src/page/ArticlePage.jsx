@@ -32,7 +32,7 @@ const ArticlePage = () => {
   useEffect(() => {
     document.body.classList.remove("bg-slate-50");
     document.body.classList.add("bg-white");
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
     document.title = `${item?.title}`;
     return () => {
       document.title = "TechPulse: Tech to the world";
@@ -40,12 +40,12 @@ const ArticlePage = () => {
   }, [item]);
   return (
     <>
-      <div className="mt-10 flex w-[95%] gap-10 flex-col lg:flex-row mx-auto min-h-screen">
+      <div className="mt-5 flex w-[95%] gap-10 flex-col lg:flex-row mx-auto min-h-screen">
         {isLoading && <ArticlePageLoaderSpinner />}
         {!isLoading && (
           <div className="flex-1">
-            <header className="space-y-4">
-              <h1 className="text-xl md:text-2xl uppercase text-stone-800 font-bold leading-8 dark:text-[#fafafa]">
+            <header className="space-y-2">
+              <h1 className="text-xl md:text-2xl uppercase  text-stone-800 font-bold leading-9 dark:text-[#e0e0e0]">
                 {item?.title}
               </h1>
               <p className="text-stone-500 capitalize text-sm leading-7 dark:text-[#e0e0e0]">
@@ -53,9 +53,6 @@ const ArticlePage = () => {
               </p>
               <div className=" md:flex md:justify-between items-center">
                 <div className="flex-col space-y-2">
-                  <p className="text-sm dark:text-stone-300">
-                    By <span className="font-semibold">{item?.author} </span>
-                  </p>
                   <span className="flex gap-5">
                     <div className="flex gap-1 items-center text-[11px] text-[(rgb(84, 86, 88))] dark:text-stone-300">
                       <FaClock className="text-stone-400" />
@@ -67,7 +64,7 @@ const ArticlePage = () => {
                     </div>
                   </span>
                 </div>
-                <div className="flex items-center gap-5 mt-5 justify-center md:ml-40">
+                <div className="flex items-center gap-5 mt-5  md:ml-40">
                   <Link className="bg-slate-50 p-2 rounded-full dark:bg-[#2c2c2c] ">
                     <FaFacebook className="text-sky-600 text-lg" />
                   </Link>
@@ -80,28 +77,27 @@ const ArticlePage = () => {
                 </div>
               </div>
             </header>
-            <section className="mt-5 space-y-5">
+            <section className="mt-8 space-y-6">
               <span>
                 <img
                   src={item?.image}
                   alt="articleImage"
-                  className="object-cover w-full xl:h-[400px]"
+                  className="w-full xl:h-[400px] h-[300px]"
                 />
               </span>
-              <div className="dark:text-[#e0e0e0] bg-transparent">
+              <p className="text-sm dark:text-stone-300">
+                By <span className="font-semibold">{item?.author} </span>
+              </p>
+              <div className="dark:text-[#e0e0e0] bg-transparent text">
                 <Interweave
                   content={item?.content}
-                  className="text-sm text-stone-600 dark:text-[#e0e0e0] whitespace-pre-wrap tracking-wide py-5 leading-8 capitalize  w-[100%]"
-                />
-                <HorizontalAd
-                  marginTop={"mt-10"}
-                  backgroundColor={"bg-gray-50"}
-                  height={"h-[70px]"}
+                  style={{ color: "white" }}
+                  className="text-sm text-stone-800 dark:text-stone-200 whitespace-pre-wrap tracking-wide py-5 leading-8 capitalize  w-[100%]"
                 />
               </div>
 
-              <div className="mt-20">
-                <h3 className="font-semibold text-xl mt-20 py-4 dark:text-[#e0e0e0]">
+              <div className="mt-10">
+                <h3 className="font-semibold text-xl mt-10 py-4 dark:text-[#e0e0e0]">
                   Leave a Comment
                 </h3>
                 <p className="mb-5 bg-[#D32F2F] dark:bg-[#D32F2F] dark:border-[#2c2c2c] dark:text-[#e0e0e0] p-4 w-full text-white text-sm rounded-md">
@@ -186,12 +182,11 @@ const ArticlePage = () => {
           </div>
         )}
         <section className="lg:w-[25%]">
-          <SquareAd height={"h-[80%]"} marginTop={"mt-20"} />
+          <SquareAd height={"h-[200px] xl:h-[70%]"} marginTop={"mt-20"} />
           <span className="space-y-5 flex flex-col xl:mt-0 w-3/4 xl:w-full mx-auto"></span>
         </section>
       </div>
     </>
   );
 };
-
 export default ArticlePage;

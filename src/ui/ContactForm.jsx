@@ -15,16 +15,18 @@ const ContactForm = () => {
   const onerror = () => {};
 
   return (
-    <div className="bg-white rounded-md py-5 px-2 w-[100%] self-start col-span-2  mt-2 min-h-screen">
-      <h2 className="text-stone-600 font-semibold mb-10 text-2xl">
+    <div className="bg-white dark:bg-[#212121] rounded-md py-5 px-2 w-[90%] md:w-[60%] mx-auto col-span-2  mt-5 min-h-screen">
+      <h2 className="text-stone-600  text-center font-semibold mb-10 text-2xl dark:text-[#fafafa]">
         Contact us
       </h2>
-      <form onSubmit={handleSubmit(onsubmit, onerror)}>
+      <form onSubmit={handleSubmit(onsubmit, onerror)} className="space-y-4">
         <div className="mb-3">
-          <label htmlFor="fullname">Enter name</label>
+          <label htmlFor="fullname" className="dark:text-[#e0e0e0]">
+            Enter name
+          </label>
           <input
             type="text"
-            className="text-sm focus:outline-none border focus:border-2 border-stone-300 rounded-md p-4 mt-1 w-full focus:border-sky-400"
+            className="text-sm focus:outline-none border dark:bg-[#2c2c2c] dark:border-[#2c2c2c] dark:text-[#e0e0e0] focus:border-2 border-stone-300 rounded-md p-4 mt-1 w-full focus:border-sky-400"
             name="name"
             {...register("name", {
               required: "Name field is required",
@@ -50,11 +52,13 @@ const ContactForm = () => {
           </small>
         </div>
         <div className="mt-3">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="dark:text-[#e0e0e0]">
+            Email address
+          </label>
           <input
             name="email"
             type="text"
-            className="text-sm focus:outline-none border border-stone-300 rounded-md p-4 mt-1 w-full focus:border-sky-400 focus:border-2"
+            className="text-sm focus:outline-none border dark:bg-[#2c2c2c] dark:border-[#2c2c2c] dark:text-[#e0e0e0] border-stone-300 rounded-md p-4 mt-1 w-full focus:border-sky-400 focus:border-2"
             {...register("email", {
               required: "Email field is required",
               pattern: {
@@ -68,13 +72,15 @@ const ContactForm = () => {
           </small>
         </div>
         <div className="mt-3">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message" className="dark:text-[#e0e0e0]">
+            Message
+          </label>
           <textarea
             name="message"
             id=""
             cols="30"
             rows="10"
-            className="text-sm h-[150px] focus:outline-none border overflow-hidden  focus:border-sky-400 focus:border-2 border-stone-300 rounded-md p-2 mt-2 w-full"
+            className="text-sm h-[150px] focus:outline-none border dark:bg-[#2c2c2c] dark:border-[#2c2c2c] dark:text-[#e0e0e0] overflow-hidden  focus:border-sky-400 focus:border-2 border-stone-300 rounded-md p-2 mt-2 w-full"
             {...register("message", {
               required: "Message field is required",
             })}
